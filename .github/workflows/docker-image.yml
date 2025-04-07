@@ -1,18 +1,23 @@
-name: Docker Image CI
+name: Build & publish Docker image
 
 on:
   push:
-    branches: [ master ]
+    branches: main
   pull_request:
-    branches: [ master ]
+    branches: main
 
 jobs:
-
   build:
-
     runs-on: alpine:3.9
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Log in to GHCR
+        run: echo "${{ secrets.GHCR_PAT }}" | docker login ghcr.io -u "${{ secrets.GHCR_USERNAME }}" --password-stdin
+
+      - name: Build and push server image
+        run: |
+          docker build -t ghcr.io/${{ secrets.GHCR_USERNAME }}/github-backup:latest .
+          docker push ghcr.io/${{ secrets.GHCR_USERNAME }}/github-backup:latest
