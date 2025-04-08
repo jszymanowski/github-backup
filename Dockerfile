@@ -14,7 +14,7 @@ COPY backup.sh /home/docker/github-backup/backup.sh
 WORKDIR /home/docker/github-backup
 RUN apk add --no-cache git tzdata; \
     python3 -m pip install --no-cache-dir uv; \
-    uv pip install --system --no-cache -e .; \
+    uv sync --system -e .; \
     chmod -R 777 /home/docker; \
     chown -R 99:98 /home/docker; \
     chmod +x backup.sh;
