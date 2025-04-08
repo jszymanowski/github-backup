@@ -24,6 +24,7 @@ do
     echo "[$(date '+%Y-%m-%d %H:%M:%S')] Starting backup..."
     echo ""
     uv run github-backup.py /home/docker/github-backup/config/config.json
+    echo ""
     echo "[$(date '+%Y-%m-%d %H:%M:%S')] Backup completed. Sleeping for $SCHEDULE seconds..."
     echo ""
     echo "----------------------------------------------------------------------------------"
