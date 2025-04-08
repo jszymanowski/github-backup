@@ -73,7 +73,7 @@ def mirror(repo_name, repo_url, to_path, username, token):
         ],
         cwd=repo_path,
     )
-    print("")
+    print("\n")
 
 
 def main():
