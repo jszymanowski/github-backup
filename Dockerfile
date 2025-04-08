@@ -1,4 +1,4 @@
-FROM alpine:3.19
+FROM python:3.13-alpine
 
 # Prepare Alpine for use
 RUN mkdir -p /home/docker/github-backup/config;
@@ -12,7 +12,7 @@ COPY backup.sh /home/docker/github-backup/backup.sh
 
 # Install prerequisites
 WORKDIR /home/docker/github-backup
-RUN apk add --no-cache python3 git tzdata; \
+RUN apk add --no-cache git tzdata; \
     python3 -m pip install --no-cache-dir uv; \
     uv pip install --system --no-cache -e .; \
     chmod -R 777 /home/docker; \
