@@ -2,8 +2,6 @@
 
 echo "Project: jszymanowski/github-backup"
 echo "Author:  John Szymanowski, lnxd"
-echo "Base:    Alpine 3.9"
-echo "Target:  Unraid"
 echo ""
 
 # If config doesn't exist yet, create it
@@ -24,7 +22,7 @@ cp /home/docker/github-backup/config.json /home/docker/github-backup/config/conf
 while true
 do
     echo "[$(date '+%Y-%m-%d %H:%M:%S')] Starting backup..."
-    python3 github-backup.py /home/docker/github-backup/config/config.json
+    uv run github-backup.py /home/docker/github-backup/config/config.json
     echo "[$(date '+%Y-%m-%d %H:%M:%S')] Backup completed. Sleeping for $SCHEDULE seconds..."
     sleep $SCHEDULE
 done
