@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.2.1](https://github.com/jszymanowski/github-backup/compare/v1.2.0...v1.2.1) (2025-04-08)
+
+
+### Minor tweaks
+
+* Make logs more readable ([#17](https://github.com/jszymanowski/github-backup/issues/17)) ([fd5e53b](https://github.com/jszymanowski/github-backup/commit/fd5e53be2fe7efc2d90b2d45829f534bf358d636))
+* Use uv sync & uv run ([#15](https://github.com/jszymanowski/github-backup/issues/15)) ([1993312](https://github.com/jszymanowski/github-backup/commit/1993312b2bffbdad536ff5ca683950bd9e3ec6d2))
+
 ## [1.2.0](https://github.com/jszymanowski/github-backup/compare/v1.1.1...v1.2.0) (2025-04-08)
 
 
