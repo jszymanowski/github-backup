@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name="github-backup",
-    version="1.0.1",
+    version="1.0.2",
     description="",
     url="https://github.com/jszymanowski/github-backup",
     author="John Szymanowski, lnxd",
