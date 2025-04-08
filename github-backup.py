@@ -42,7 +42,7 @@ def mkdir(path):
 
 
 def mirror(repo_name, repo_url, to_path, username, token):
-    print(f"Processing ${repo_name}", file=sys.stderr)
+    print(f"\nProcessing ${repo_name}", file=sys.stderr)
     parsed = urllib.parse.urlparse(repo_url)
     modified = list(parsed)
     modified[1] = "{username}:{token}@{netloc}".format(
@@ -73,7 +73,6 @@ def mirror(repo_name, repo_url, to_path, username, token):
         ],
         cwd=repo_path,
     )
-    print("\n.")
 
 
 def main():
