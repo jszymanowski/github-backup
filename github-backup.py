@@ -67,6 +67,7 @@ def mirror(repo_name, repo_url, to_path, username, token):
             "--force",
             "--prune",
             "--tags",
+            "--verbose",
             repo_url,
             "refs/heads/*:refs/heads/*",
         ],
