@@ -1,4 +1,4 @@
-name: Build & publish Docker image
+name: Release & publish (latest)
 
 on:
   push:
@@ -9,6 +9,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    timeout-minutes: 5
 
     steps:
       - name: Checkout code
