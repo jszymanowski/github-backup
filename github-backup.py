@@ -42,7 +42,7 @@ def mkdir(path):
 
 
 def mirror(repo_name, repo_url, to_path, username, token):
-    print(f"Processing ${repo_name}", file=sys.stderr)
+    print(f"\nProcessing ${repo_name}", file=sys.stderr)
     parsed = urllib.parse.urlparse(repo_url)
     modified = list(parsed)
     modified[1] = "{username}:{token}@{netloc}".format(
@@ -87,7 +87,7 @@ def main():
     token = config["token"]
     path = os.path.expanduser(config["directory"])
     if mkdir(path):
-        print("Created directory {0}".format(path), file=sys.stderr)
+        print("Created root backup directory {0}".format(path), file=sys.stderr)
 
     user = next(get_json("https://api.github.com/user", token))
     for page in get_json("https://api.github.com/user/repos", token):
