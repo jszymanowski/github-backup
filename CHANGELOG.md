@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://github.com/jszymanowski/github-backup/compare/v1.1.1...v1.2.0) (2025-04-08)
+
+
+### Features
+
+* Update docker base image; use uv for dependency management ([#1](https://github.com/jszymanowski/github-backup/issues/1)) ([fad14cf](https://github.com/jszymanowski/github-backup/commit/fad14cffb2f65eecac802d53fc483f79d1a650f4))
+
 ## [1.1.1](https://github.com/jszymanowski/github-backup/compare/v1.1.0...v1.1.1) (2025-04-08)
 
 
