@@ -73,6 +73,7 @@ def mirror(repo_name, repo_url, to_path, username, token):
         ],
         cwd=repo_path,
     )
+    print("")
 
 
 def main():
@@ -87,7 +88,7 @@ def main():
     token = config["token"]
     path = os.path.expanduser(config["directory"])
     if mkdir(path):
-        print("Created directory {0}".format(path), file=sys.stderr)
+        print("Created root backup directory {0}".format(path), file=sys.stderr)
 
     user = next(get_json("https://api.github.com/user", token))
     for page in get_json("https://api.github.com/user/repos", token):

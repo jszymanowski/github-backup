@@ -22,7 +22,10 @@ cp /home/docker/github-backup/config.json /home/docker/github-backup/config/conf
 while true
 do
     echo "[$(date '+%Y-%m-%d %H:%M:%S')] Starting backup..."
+    echo ""
     uv run github-backup.py /home/docker/github-backup/config/config.json
+    echo ""
     echo "[$(date '+%Y-%m-%d %H:%M:%S')] Backup completed. Sleeping for $SCHEDULE seconds..."
+    echo ""
     sleep $SCHEDULE
 done
