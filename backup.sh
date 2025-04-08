@@ -1,7 +1,7 @@
 #!/bin/sh
 
-echo "Project: github-backup"
-echo "Author:  lnxd, John Szymanowski"
+echo "Project: jszymanowski/github-backup"
+echo "Author:  John Szymanowski, lnxd"
 echo "Base:    Alpine 3.9"
 echo "Target:  Unraid"
 echo ""
