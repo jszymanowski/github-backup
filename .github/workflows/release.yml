@@ -1,4 +1,4 @@
-name: Release
+name: Release & publish (release-please)
 
 on:
   push:
@@ -14,8 +14,29 @@ jobs:
   release-please:
     runs-on: ubuntu-latest
 
+    outputs:
+      release_created: ${{ steps.release.outputs.release_created }}
+      tag_name: ${{ steps.release.outputs.tag_name }}
+
     steps:
       - uses: googleapis/release-please-action@a02a34c4d625f9be7cb89156071d8567266a2445 # v4
         id: release
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
+
+  publish:
+    needs: release-please
+    if: ${{ needs.release-please.outputs.release_created }}
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Log in to GHCR
+        run: echo "${{ secrets.GHCR_PAT }}" | docker login ghcr.io -u "${{ secrets.GHCR_USERNAME }}" --password-stdin
+
+      - name: Build and push server image
+        run: |
+          docker build -t ghcr.io/${{ secrets.GHCR_USERNAME }}/github-backup:v${{ needs.release-please.outputs.tag_name }} .
+          docker push ghcr.io/${{ secrets.GHCR_USERNAME }}/github-backup:v${{ needs.release-please.outputs.tag_name }}
