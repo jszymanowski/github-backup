@@ -1,0 +1,24 @@
+name: Release & publish (latest)
+
+on:
+  push:
+    branches: main
+  pull_request:
+    branches: main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Log in to GHCR
+        run: echo "${{ secrets.GHCR_PAT }}" | docker login ghcr.io -u "${{ secrets.GHCR_USERNAME }}" --password-stdin
+
+      - name: Build and push server image
+        run: |
+          docker build -t ghcr.io/${{ secrets.GHCR_USERNAME }}/github-backup:latest .
+          docker push ghcr.io/${{ secrets.GHCR_USERNAME }}/github-backup:latest

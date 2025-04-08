@@ -42,6 +42,7 @@ def mkdir(path):
 
 
 def mirror(repo_name, repo_url, to_path, username, token):
+    print(f"Processing ${repo_name}", file=sys.stderr)
     parsed = urllib.parse.urlparse(repo_url)
     modified = list(parsed)
     modified[1] = "{username}:{token}@{netloc}".format(
@@ -50,7 +51,8 @@ def mirror(repo_name, repo_url, to_path, username, token):
     repo_url = urllib.parse.urlunparse(modified)
 
     repo_path = os.path.join(to_path, repo_name)
-    mkdir(repo_path)
+    if mkdir(repo_path):
+        print("Created directory for repo {0}".format(repo_path), file=sys.stderr)
 
     # git-init manual:
     # "Running git init in an existing repository is safe."
@@ -65,6 +67,7 @@ def mirror(repo_name, repo_url, to_path, username, token):
             "--force",
             "--prune",
             "--tags",
+            "--verbose",
             repo_url,
             "refs/heads/*:refs/heads/*",
         ],
