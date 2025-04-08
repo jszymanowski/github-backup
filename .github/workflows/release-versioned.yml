@@ -41,5 +41,5 @@ jobs:
 
       - name: Build and push server image
         run: |
-          docker build -t ghcr.io/${{ secrets.GHCR_USERNAME }}/github-backup:v${{ needs.release-please.outputs.tag_name }} .
-          docker push ghcr.io/${{ secrets.GHCR_USERNAME }}/github-backup:v${{ needs.release-please.outputs.tag_name }}
+          docker build -t ghcr.io/${{ secrets.GHCR_USERNAME }}/github-backup:${{ needs.release-please.outputs.tag_name }} .
+          docker push ghcr.io/${{ secrets.GHCR_USERNAME }}/github-backup:${{ needs.release-please.outputs.tag_name }}
