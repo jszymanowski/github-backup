@@ -1,4 +1,4 @@
-name: Build & publish Docker image
+name: Release & publish (latest)
 
 on:
   push:
