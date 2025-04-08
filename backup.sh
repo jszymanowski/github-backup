@@ -27,5 +27,7 @@ do
     echo ""
     echo "[$(date '+%Y-%m-%d %H:%M:%S')] Backup completed. Sleeping for $SCHEDULE seconds..."
     echo ""
+    echo "----------------------------------------------------------------------------------"
+    echo ""
     sleep $SCHEDULE
 done
