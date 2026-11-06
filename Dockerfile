@@ -1,4 +1,4 @@
-FROM python:3.14-alpine@sha256:faee120f7885a06fcc9677922331391fa690d911c020abb9e8025ff3d908e510
+FROM python:3.14-alpine@sha256:a18b20ad69e74df6cf6d2e1b1a260d7a1ecf5380fd83b310f83ba88c461cf894
 
 # Prepare Alpine for use
 RUN mkdir -p /home/docker/github-backup/config;
